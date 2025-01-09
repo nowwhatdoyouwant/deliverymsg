@@ -60,7 +60,7 @@
         let tel=$("#tel").val();
         let dtimearr=["15分鐘","30分鐘","1小時"];
         let dtime=dtimearr[$("input[name='dtime']:checked").val()];
-        let msg=`您好,我是*同順興*送貨員,我們大概${dtime}左右到達，請問家裡有人收貨嗎? 如需放門口/大堂麻煩請告知，謝謝☺️🙏🏻`
+        let msg=`您好,我是 *同順興* 送貨員,我們大概${dtime}左右到達，請問家裡有人收貨嗎? 如需放門口/大堂麻煩請告知，謝謝☺️🙏🏻`
         window.open(`whatsapp://send?phone=852${tel}&text=${msg}`, '_blank');
     }   
 </script>
