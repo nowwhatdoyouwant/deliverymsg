@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: #cef3e8;
+        }
+        h1{
+            font-size:40px;
+        }
+        label{
+            font-size:25px;
+            font-weight:bold;
+        }
+        input[type="text"]{
+            height:30px;
+            outline:none;
+            width: 95%;
+            font-size:20px;
+            color:#333;
+            margin:2px 0 10px;
+            border:2px solid #fff;
+        }
+        button{
+            height: 50px;
+            padding:10px;
+            border:2px solid #fff;
+            background-color: #32af84;
+            color:white;
+        }
+        input[type="radio"]{
+            width:20px;
+            height:20px;
+            vertical-align: middle;
+            margin:0 2px;
+        }
+    </style>
+</head>
+<body>
+    <h1>送貨通知專用</h1>
+    <div>
+        <h3>預計到達時間</h3>
+        <input type="radio" name="dtime" id="dtime15" value="0" checked>
+        <label for="dtime15">15分鐘</label>
+        <input type="radio" name="dtime" id="dtime30" value="1">
+        <label for="dtime15">30分鐘</label>
+        <input type="radio" name="dtime" id="dtime60" value="2">
+        <label for="dtime60">1小時</label>
+    </div>
+
+    <h3>客戶電話:</h3>
+    <input type="text" id="tel">
+    <button onclick="sendmsg();">發送Whatsapp</button>
+    <script src="jquery-3.6.3.slim.min.js"></script>
+<script>
+    function sendmsg(){
+        let tel=$("#tel").val();
+        let dtimearr=["15分鐘","30分鐘","1小時"];
+        let dtime=dtimearr[$("input[name='dtime']:checked").val()];
+        let msg=`您好,我是*同順興*送貨員,我們大概${dtime}左右到達，請問家裡有人收貨嗎? 如需放門口/大堂麻煩請告知，謝謝☺️🙏🏻`
+        window.open(`whatsapp://send?phone=852${tel}&text=${msg}`, '_blank');
+    }   
+</script>
+</body>
+</html>
